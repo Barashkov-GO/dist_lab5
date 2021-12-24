@@ -27,6 +27,7 @@ import org.asynchttpclient.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -77,7 +78,7 @@ public class App {
                                         TIMEOUT
                     ).thenCompose(
                         result -> {
-                            if (result) {
+                            if ((Optional<Long>result) {
                                 return CompletableFuture.completedFuture(
                                         new Pair<String, Long>(
                                                 m.first(),
