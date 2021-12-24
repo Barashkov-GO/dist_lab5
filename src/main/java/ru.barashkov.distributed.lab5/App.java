@@ -86,7 +86,8 @@ public class App {
                                         <Pair<String, Long>>create().
                                         mapConcat(
                                                 m -> {
-                                                    ArrayList<String> 
+                                                    ArrayList<String> out = new ArrayList<>();
+                                                    for (int i = 0; i < m.)
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
