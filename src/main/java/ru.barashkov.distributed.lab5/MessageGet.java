@@ -1,9 +1,9 @@
 package ru.barashkov.distributed.lab5;
 
-public class MessageSet {
+public class MessageGet {
     private String url;
 
-    public MessageSet(String url){
+    public MessageGet(String url){
         this.url = url;
     }
 

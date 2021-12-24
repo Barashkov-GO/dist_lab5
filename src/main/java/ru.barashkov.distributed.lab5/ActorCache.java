@@ -10,7 +10,7 @@ public class ActorCache extends AbstractActor {
     private final Map<String, Long> cache = new HashMap<>();
 
     @Override
-    public Receive createRecieve() {
+    public Receive createReceive() {
         return ReceiveBuilder.create().
             match(
                 MessageSet.class,
