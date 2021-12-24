@@ -5,7 +5,7 @@ public class MessageSet {
         this.url = url;
     }
 
-    public getUrl() {
+    public String getUrl() {
         return this.url;
     }
 }

@@ -35,7 +35,7 @@
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src/main/java/ru.barashkov.distributed.lab5.App" />
+      <option name="MAIN_CLASS_NAME" value="App" />
       <module name="dist_lab5" />
       <method v="2">
         <option name="Make" enabled="true" />
