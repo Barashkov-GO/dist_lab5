@@ -23,7 +23,7 @@ public class App {
             ActorSystem system = ActorSystem.create("routes");
             final Http http = Http.get(system);
             final ActorMaterializer materializer = ActorMaterializer.create(system);
-            final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(Http, ActorSystem, ActorMaterializer);
+            final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(http, system, materializer);
             final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                     routeFlow,
                     ConnectHttp.toHost(IP, PORT),
@@ -36,6 +36,11 @@ public class App {
                     .thenAccept(unbound -> system.terminate());
         }
 
-        public static Flow<HttpRequest, HttpResponse, NotUsed> func(Http http, )
+        public static Flow<HttpRequest, HttpResponse, NotUsed> func(
+                Http http,
+                ActorSystem system,
+                ActorMaterializer materializer) {
+
+        }
 
 }
