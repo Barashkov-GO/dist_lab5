@@ -69,7 +69,7 @@ public class App {
                                 ).thenCompose(
                                     result -> {
                                         if result.is {
-                                            return CompletableFuture<Long>.
+                                            return CompletableFuture<Long>.completedFuture()
                                     }
                                 )
                     )
