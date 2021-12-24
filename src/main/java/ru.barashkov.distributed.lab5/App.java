@@ -100,7 +100,7 @@ public class App {
                                         mapAsync(
                                                 m.second(), url -> {
                                                     long begin = System.currentTimeMillis();
-                                                    CompletableFuture<Response> = 
+                                                    CompletableFuture<Response> resp =   
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
