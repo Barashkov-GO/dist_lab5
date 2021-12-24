@@ -15,6 +15,7 @@ import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
+import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import javafx.util.Duration;
 import javafx.util.Pair;
@@ -77,7 +78,7 @@ public class App {
                                                     result)
                                             );
                                         } else {
-                                            Sink<Integer, Compl>
+                                            Sink<Integer, CompletableFuture<Long>> fold = Sink.fold()
                                             testSink = Flow.<Pair<String, Long>>create().
                                             Source.from(Collections.singletonList(r))
                                                     .toMat(testSink, Keep.right()).run(materializer);
