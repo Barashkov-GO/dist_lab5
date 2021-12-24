@@ -112,7 +112,7 @@ public class App {
                                                             req ->
                                                             CompletableFuture.
                                                             completedFuture(
-                                                                    System.currentTimeMillis() - begin);
+                                                                    System.currentTimeMillis() - begin)
 
                                                     );
                                                 }
