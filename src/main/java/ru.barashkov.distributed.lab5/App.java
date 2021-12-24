@@ -132,8 +132,7 @@ public class App {
                                         ),
                                         ActorRef.noSender()
                                 );
-                            }
-                            
+                                return
 
         }
 
