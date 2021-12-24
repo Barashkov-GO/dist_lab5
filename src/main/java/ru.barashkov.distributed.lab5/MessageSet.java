@@ -2,9 +2,9 @@ package ru.barashkov.distributed.lab5;
 
 public class MessageSet {
     private final String url;
-    private final Integer responseTime;
+    private final Long responseTime;
 
-    public MessageSet(String url, Integer time){
+    public MessageSet(String url, Long time){
         this.url = url;
         this.responseTime = time;
     }
@@ -13,7 +13,7 @@ public class MessageSet {
         return this.url;
     }
 
-    public Integer getResponseTime() {
+    public Long getResponseTime() {
         return this.responseTime;
     }
 }

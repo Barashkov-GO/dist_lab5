@@ -2,36 +2,27 @@ package ru.barashkov.distributed.lab5;
 
 
 import akka.NotUsed;
-
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
-
 import akka.japi.Pair;
 import akka.japi.function.Function2;
-
 import akka.pattern.Patterns;
-
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 
-
 import java.io.IOException;
-
-import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -63,8 +54,8 @@ public class App {
         }
 
         public static Flow<HttpRequest, HttpResponse, NotUsed> func(
-                Http http,
-                ActorSystem system,
+//                Http http,
+//                ActorSystem system,
                 ActorMaterializer materializer,
                 ActorRef actorCache) {
             return Flow.of(HttpRequest.class).
@@ -84,11 +75,11 @@ public class App {
                                     TIMEOUT
                             ).thenCompose(
                                     result -> {
-                                        if ((Integer) result >= 0) {
+                                        if ((Long) result >= 0) {
                                             return CompletableFuture.completedFuture(
                                                     new Pair<>(
                                                             request.first(),
-                                                            (Integer) result
+                                                            (Long) result
                                                     )
                                             );
                                         } else {
