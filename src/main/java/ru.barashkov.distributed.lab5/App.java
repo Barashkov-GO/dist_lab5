@@ -108,7 +108,7 @@ public class App {
                                                             asyncHttpClient().
                                                             executeRequest(request).
                                                             toCompletableFuture();
-                                                    return resp.
+                                                    return resp.thenCompose()
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
