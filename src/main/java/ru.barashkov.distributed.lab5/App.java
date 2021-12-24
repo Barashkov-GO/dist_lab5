@@ -67,7 +67,8 @@ public class App {
                                         TIMEOUT
                                 ).thenCompose(
                                     result -> {
-                                        if result.
+                                        if result.is {
+                                            
                                     }
                                 )
                     )
