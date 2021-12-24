@@ -61,11 +61,11 @@ public class App {
                     ).
                     mapAsync(
                             PARALLELISM,
-                            m -> {
-                                Patterns.ask(
+                            m -> Patterns.ask(
                                         actorCache,
                                         new MessageGet(m.first),
-                                        TIMEOUT)
+                                        TIMEOUT
+                                ).thenCompose
                                 )
 
                             }
