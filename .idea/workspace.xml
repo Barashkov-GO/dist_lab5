@@ -7,8 +7,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
+    <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src/main/java/ru.barashkov.distributed.lab5.App" />
       <module name="dist_lab5" />
       <method v="2">
         <option name="Make" enabled="true" />
