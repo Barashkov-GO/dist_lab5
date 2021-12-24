@@ -87,7 +87,8 @@ public class App {
                             } else {
                                 Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
                                         0L,
-                                        (Function2<Long, Integer, Long>) (Long::sum));
+                                        (Function2<Long, Integer, Long>) (Long::sum)
+                                );
                                 Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                         <Pair<String, Long>>create().
                                         mapConcat(
