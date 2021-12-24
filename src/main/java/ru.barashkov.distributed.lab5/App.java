@@ -40,7 +40,7 @@ public class App {
         private static final java.time.Duration TIMEOUT = java.time.Duration.ofMillis(3000);
 
         public static void main(String[] args) throws IOException {
-            System.out.println("start!");
+            System.out.println("Starting...");
             ActorSystem system = ActorSystem.create("routes");
             ActorRef actorCache = system.actorOf(Props.create(ActorCache.class));
             final Http http = Http.get(system);
@@ -128,7 +128,9 @@ public class App {
                                                     toMat(testSink, Keep.right()).
                                                     run(materializer).
                                                     thenApply(
-                                                            sum -> new Pair<>(request.first(), sum / request.second().longValue())
+                                                            sum -> new Pair<>(
+                                                                    request.first(),
+                                                                    sum / request.second().longValue())
                                                     );
                                         }
                                     }
