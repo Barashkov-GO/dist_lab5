@@ -21,6 +21,7 @@ import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -84,7 +85,9 @@ public class App {
                                 Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                         <Pair<String, Long>>create().
                                         mapConcat(
-                                                m -> 
+                                                m -> {
+                                                    ArrayList<String> 
+                                                }
                                         )
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
