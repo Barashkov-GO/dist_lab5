@@ -72,16 +72,16 @@ public class App {
                     ).
                     mapAsync(
                         PARALLELISM,
-                        m -> Patterns.ask(
+                        request  -> Patterns.ask(
                                         actorCache,
-                                        new MessageGet(m.first()),
+                                        new MessageGet(request.first()),
                                         TIMEOUT
                         ).thenCompose(
                             result -> {
                                 if (((Optional<Long>) result).isPresent()) {
                                     return CompletableFuture.completedFuture(
                                             new Pair<String, Optional<Long>>(
-                                                    m.first(),
+                                                    request.first(),
                                                     ((Optional<Long>) result).get()
                                             )
                                     );
@@ -102,7 +102,7 @@ public class App {
                                                     }
                                             ).
                                             mapAsync(
-                                                    m.second(), url -> {
+                                                    request.second(), url -> {
                                                         Request request = Dsl.get(url).build();
                                                         long begin = System.currentTimeMillis();
                                                         CompletableFuture<Response> resp =
@@ -120,7 +120,7 @@ public class App {
                                                     }
                                             ).toMat(fold, Keep.right());
                                     return Source.
-                                            from(Collections.singletonList(m)).
+                                            from(Collections.singletonList(request)).
                                             toMat(testSink, Keep.right()).
                                             run(materializer);
                                 }
