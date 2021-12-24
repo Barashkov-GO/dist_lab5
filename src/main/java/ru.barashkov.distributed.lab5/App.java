@@ -9,6 +9,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import javafx.util.Pair;
@@ -55,7 +56,9 @@ public class App {
                     mapAsync(
                             PARALLELISM,
                             m -> {
-                                Patterns.ask()
+                                Patterns.ask(
+                                        ActorCache
+                                )
 
                             }
                     )
