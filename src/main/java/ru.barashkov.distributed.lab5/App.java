@@ -128,7 +128,7 @@ public class App {
                                                     toMat(testSink, Keep.right()).
                                                     run(materializer).
                                                     thenApply(
-                                                            sum -> new Pair<>(request.first(), sum / request.second())
+                                                            sum -> new Pair<>(request.first(), sum / request.second().longValue())
                                                     );
                                         }
                                     }
