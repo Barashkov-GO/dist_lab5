@@ -110,10 +110,10 @@ public class App {
                                                                         asyncHttpClient().
                                                                         executeRequest(request1).
                                                                         toCompletableFuture();
-                                                                return CompletableFuture.completedFuture(
+                                                                return responseCompletableFuture(
                                                                         response -> {
                                                                             int duration = (int) (System.currentTimeMillis() - begin);
-                                                                            return CompletableFuture.completedFuture(duration); 
+                                                                            return CompletableFuture.completedFuture(duration);
                                                                         }
                                                                 );
                                                             }
