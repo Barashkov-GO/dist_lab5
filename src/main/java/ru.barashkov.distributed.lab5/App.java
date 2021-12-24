@@ -91,13 +91,14 @@ public class App {
                                             Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                                     <Pair<String, Integer>>create().
                                                     mapConcat(
-                                                            r -> {
-                                                                ArrayList<String> out = new ArrayList<>();
-                                                                for (int i = 0; i < r.second(); i++) {
-                                                                    out.add(r.first());
-                                                                }
-                                                                return out;
-                                                            }
+                                                            r -> new ArrayList<>()
+//                                                            {
+//                                                                ArrayList<String> out = new ArrayList<>();
+//                                                                for (int i = 0; i < r.second(); i++) {
+//                                                                    out.add(r.first());
+//                                                                }
+//                                                                return out;
+//                                                            }
                                                     ).
                                                     mapAsync(
                                                             request.second(), url -> {
