@@ -130,7 +130,8 @@ public class App {
                                                     thenApply(
                                                             sum -> new Pair<>(
                                                                     request.first(),
-                                                                    sum / request.second().longValue())
+                                                                    (sum / request.second().longValue())
+                                                            )
                                                     );
                                         }
                                     }
