@@ -23,6 +23,7 @@ import akka.stream.javadsl.Source;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
@@ -75,11 +76,11 @@ public class App {
                                     TIMEOUT
                             ).thenCompose(
                                     result -> {
-                                        if ((Long) result >= 0) {
+                                        if (((Optional<Long>) result).isPresent()) {
                                             return CompletableFuture.completedFuture(
                                                     new Pair<>(
                                                             request.first(),
-                                                            (Long) result
+                                                            ((Optional<Long>) result).get()
                                                     )
                                             );
                                         } else {
