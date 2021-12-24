@@ -66,13 +66,18 @@ public class App {
                             PARALLELISM,
                             m -> Patterns.ask(
                                         actorCache,
-                                        new MessageGet(m.first),
+                                        new MessageGet(m.first())),
                                         TIMEOUT
                                 ).thenCompose(
                                     result -> {
                                         if result.is {
-                                            return CompletableFuture.completedFuture(new Pair<String, Long> (m.first(), result))
-                                    }
+                                            return CompletableFuture.completedFuture(new Pair<String, Long> (
+                                                    m.first(),
+                                                    result)
+                                            );
+                                        } else {
+                                            
+                                        }
                                 )
                     )
 
