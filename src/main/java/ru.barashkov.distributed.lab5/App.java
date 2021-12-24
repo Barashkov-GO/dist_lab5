@@ -103,7 +103,12 @@ public class App {
                                                 m.second(), url -> {
                                                     Request request = Dsl.get(url).build();
                                                     long begin = System.currentTimeMillis();
-                                                    CompletableFuture<Response> resp = Dsl.asyncHttpClient().executeRequest(request).toCompletableFuture();
+                                                    CompletableFuture<Response> resp =
+                                                            Dsl.
+                                                            asyncHttpClient().
+                                                            executeRequest(request).
+                                                            toCompletableFuture();
+                                                    
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
