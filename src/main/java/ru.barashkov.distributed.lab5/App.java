@@ -80,7 +80,7 @@ public class App {
                                         } else {
                                             Sink<Integer, CompletableFuture<Long>> fold = Sink.fold(
                                                     0L,
-                                                    (Function2<Long, Integer, Long>) )
+                                                        (Function2<Long, Integer, Long>)((x, y) -> x + y))
                                             testSink = Flow.<Pair<String, Long>>create().
                                             Source.from(Collections.singletonList(r))
                                                     .toMat(testSink, Keep.right()).run(materializer);
