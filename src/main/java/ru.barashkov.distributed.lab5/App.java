@@ -104,11 +104,11 @@ public class App {
                                                     mapAsync(
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
-                                                                Request request1 = Dsl.get(url).build();
+                                                                Request requestTemp = Dsl.get(url).build();
                                                                 CompletableFuture<Response> responseCompletableFuture =
                                                                         Dsl.
                                                                         asyncHttpClient().
-                                                                        executeRequest(request1).
+                                                                        executeRequest(requestTemp).
                                                                         toCompletableFuture();
                                                                 return responseCompletableFuture.thenCompose(
                                                                         response -> {
