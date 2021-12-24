@@ -44,7 +44,8 @@ public class App {
             return Flow.of(HttpRequest.class).map(
                     m -> {
                         Query q = m.getUri().query();
-                        String url = q.get()
+                        String url = q.get("url");
+                        Integer count = q.get("count");
                     }
             )
 
