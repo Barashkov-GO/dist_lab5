@@ -32,6 +32,9 @@ import java.util.concurrent.CompletionStage;
 
 public class App {
         private static final String IP = "localhost";
+        private static final String URL_PARAMETER = "";
+        private static final String IP = "localhost";
+
         private static final Integer PORT = 8080;
         private static final Integer PARALLELISM = 10;
         private static final java.time.Duration TIMEOUT = java.time.Duration.ofMillis(3000);
