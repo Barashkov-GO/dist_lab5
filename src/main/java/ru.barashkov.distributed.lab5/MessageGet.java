@@ -1,8 +1,10 @@
+package ru.barashkov.distributed.lab5;
+
 public class MessageGet {
     private String url;
     private Long responseTime;
 
-    public MessageSet(String url. Long time){
+    public MessageGet(String url, Long time){
         this.url = url;
         this.responseTime = time;
     }
