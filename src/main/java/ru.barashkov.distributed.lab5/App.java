@@ -112,8 +112,8 @@ public class App {
                                                                         toCompletableFuture();
                                                                 return CompletableFuture.completedFuture(
                                                                         response -> {
-                                                                            int duration = (int)
-                                                                            return CompletableFuture.completedFuture()
+                                                                            int duration = (int) (System.currentTimeMillis() - begin);
+                                                                            return CompletableFuture.completedFuture(duration);
                                                                         }
                                                                 );
                                                             }
