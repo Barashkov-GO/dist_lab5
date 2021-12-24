@@ -98,6 +98,7 @@ public class App {
                                         ).
                                         mapAsync(
                                                 m.second, url -> {
+                                                    long begin = System.currentTimeMillis();
                                                     
                                                 }
                                         )
