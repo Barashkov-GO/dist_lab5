@@ -132,7 +132,7 @@ public class App {
                                         ),
                                         ActorRef.noSender()
                                 );
-                                return HttpResponse.create().
+                                return HttpResponse.create().withEntity()
 
         }
 
