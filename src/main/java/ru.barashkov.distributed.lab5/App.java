@@ -65,63 +65,63 @@ public class App {
                 ActorRef actorCache) {
             return Flow.of(HttpRequest.class).
                     map(
-                        request -> {
-                            Query q = request.getUri().query();
-                            String url = q.get("url").get();
-                            Integer count = Integer.parseInt(q.get("count").get());
-                            return new Pair<>(url, count);
-                        }
+                            request -> {
+                                Query q = request.getUri().query();
+                                String url = q.get("url").get();
+                                Integer count = Integer.parseInt(q.get("count").get());
+                                return new Pair<>(url, count);
+                            }
                     ).
                     mapAsync(
-                        PARALLELISM,
-                        request  -> Patterns.ask(
-                                        actorCache,
-                                        new MessageGet(request.first()),
-                                        TIMEOUT
-                        ).thenCompose(
-                            result -> {
-                                if (((Integer) result).isPresent()) {
-                                    return CompletableFuture.completedFuture(
-                                            new Pair<String, Optional<Long>>(
-                                                    request.first(),
-                                                    ((Optional<Long>) result).get()
-                                            )
-                                    );
-                                } else {
-                                    Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
-                                            0L,
-                                            (Function2<Long, Integer, Long>) (Long::sum)
-                                    );
-                                    Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
-                                            <Pair<String, Integer>>create().
-                                            mapConcat(
-                                                    r -> {
-                                                        ArrayList<String> out = new ArrayList<>();
-                                                        for (int i = 0; i < r.second(); i++) {
-                                                            out.add(r.first());
-                                                        }
-                                                        return out;
-                                                    }
-                                            ).
-                                            mapAsync(
-                                                    request.second(), url -> {
-                                                        long begin = System.currentTimeMillis();
-                                                        asyncHttpClient().prepareGet(url).execute();
-                                                        return CompletableFuture.completedFuture(
-                                                                (int) (System.currentTimeMillis() - begin)
-                                                        );
-                                                    }
-                                            ).toMat(fold, Keep.right());
-                                    return Source.
-                                            from(Collections.singletonList(request)).
-                                            toMat(testSink, Keep.right()).
-                                            run(materializer).
-                                            thenApply(
-                                                    sum -> new Pair<>(request.first(), sum / request.second())
+                            PARALLELISM,
+                            request -> Patterns.ask(
+                                    actorCache,
+                                    new MessageGet(request.first()),
+                                    TIMEOUT
+                            ).thenCompose(
+                                    result -> {
+                                        if (((Integer) result).isPresent()) {
+                                            return CompletableFuture.completedFuture(
+                                                    new Pair<String, Optional<Long>>(
+                                                            request.first(),
+                                                            ((Optional<Long>) result).get()
+                                                    )
                                             );
-                                }
-                            }
-                        )
+                                        } else {
+                                            Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
+                                                    0L,
+                                                    (Function2<Long, Integer, Long>) (Long::sum)
+                                            );
+                                            Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
+                                                    <Pair<String, Integer>>create().
+                                                    mapConcat(
+                                                            r -> {
+                                                                ArrayList<String> out = new ArrayList<>();
+                                                                for (int i = 0; i < r.second(); i++) {
+                                                                    out.add(r.first());
+                                                                }
+                                                                return out;
+                                                            }
+                                                    ).
+                                                    mapAsync(
+                                                            request.second(), url -> {
+                                                                long begin = System.currentTimeMillis();
+                                                                asyncHttpClient().prepareGet(url).execute();
+                                                                return CompletableFuture.completedFuture(
+                                                                        (int) (System.currentTimeMillis() - begin)
+                                                                );
+                                                            }
+                                                    ).toMat(fold, Keep.right());
+                                            return Source.
+                                                    from(Collections.singletonList(request)).
+                                                    toMat(testSink, Keep.right()).
+                                                    run(materializer).
+                                                    thenApply(
+                                                            sum -> new Pair<>(request.first(), sum / request.second())
+                                                    );
+                                        }
+                                    }
+                            )
                     ).map(
                             result -> {
                                 actorCache.tell(
@@ -134,4 +134,5 @@ public class App {
                                 return HttpResponse.create().withEntity(result.first() + " - " + result.second().toString());
                             }
                     );
+        }
 }
