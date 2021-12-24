@@ -11,7 +11,11 @@ public class ActorCache extends AbstractActor {
                 MessageSet.class,
                 m -> cache.put(m.getUrl(), m.getResponseTime())
             ).
-            match
+            match(
+                MessageGet.class,
+                m ->
+            ).
+            build()
 
     }
 
