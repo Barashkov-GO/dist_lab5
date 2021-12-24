@@ -127,7 +127,7 @@ public class App {
                                         ),
                                         ActorRef.noSender()
                                 );
-                                System.out.println("Average:\t" + );
+                                System.out.println("Average:\t" + result.second());
                                 return HttpResponse.create().withEntity(
                                             result.first() +
                                             " - " +
