@@ -5,6 +5,7 @@ import akka.japi.pf.ReceiveBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class ActorCache extends AbstractActor {
     private final Map<String, Long> cache = new HashMap<>();
@@ -23,7 +24,7 @@ public class ActorCache extends AbstractActor {
                 MessageGet.class,
                 m -> sender().
                         tell(
-                                cache.get(m.getUrl()),
+                                Optionalcache.get(m.getUrl()),
                                 self()
                         )
             ).
