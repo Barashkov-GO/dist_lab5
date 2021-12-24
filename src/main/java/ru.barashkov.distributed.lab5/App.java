@@ -36,7 +36,7 @@ public class App {
         private static final String COUNT_PARAMETER = "count";
 
         private static final Integer PORT = 8080;
-        private static final Integer PARALLELISM = 10;
+        private static final Integer PARALLELISM = 1;
         private static final java.time.Duration TIMEOUT = java.time.Duration.ofMillis(3000);
 
         public static void main(String[] args) throws IOException {
