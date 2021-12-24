@@ -112,7 +112,7 @@ public class App {
                                                                         toCompletableFuture();
                                                                 return CompletableFuture.completedFuture(
                                                                         response -> {
-                                                                            return com
+                                                                            return CompletableFuture
                                                                         }
                                                                 );
                                                             }
