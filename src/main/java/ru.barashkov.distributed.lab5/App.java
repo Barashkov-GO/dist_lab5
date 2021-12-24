@@ -83,7 +83,9 @@ public class App {
                                             (Function2<Long, Integer, Long>) (Long::sum));
                                 Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                         <Pair<String, Long>>create().
-                                        mapConcat()
+                                        mapConcat(
+                                                m -> 
+                                        )
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
