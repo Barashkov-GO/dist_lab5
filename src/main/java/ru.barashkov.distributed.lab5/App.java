@@ -11,6 +11,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -41,12 +42,12 @@ public class App {
                 Http http,
                 ActorSystem system,
                 ActorMaterializer materializer) {
-            return Flow.of(HttpRequest.class).map(
+            return (Flow<HttpRequest, HttpResponse, NotUsed>) Flow.of(HttpRequest.class).map(
                     m -> {
                         Query q = m.getUri().query();
                         String url = String.valueOf(q.get("url"));
                         Integer count = Integer.parseInt(String.valueOf(q.get("count")));
-                        
+                        return new Pair<String, Integer>(url, count);
                     }
             )
 
