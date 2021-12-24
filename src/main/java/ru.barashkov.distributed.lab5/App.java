@@ -135,7 +135,11 @@ public class App {
                                         ),
                                         ActorRef.noSender()
                                 );
-                                return HttpResponse.create().withEntity(result.first() + " - " + result.second().toString());
+                                return HttpResponse.create().withEntity(
+                                            result.first() +
+                                            " - " +
+                                            result.second().toString()
+                                );
                             }
                     );
         }
