@@ -93,10 +93,10 @@ public class App {
                                     Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                             <Pair<String, Integer>>create().
                                             mapConcat(
-                                                    m -> {
+                                                    r -> {
                                                         ArrayList<String> out = new ArrayList<>();
-                                                        for (int i = 0; i < m.second(); i++) {
-                                                            out.add(m.first());
+                                                        for (int i = 0; i < r.second(); i++) {
+                                                            out.add(r.first());
                                                         }
                                                         return out;
                                                     }
