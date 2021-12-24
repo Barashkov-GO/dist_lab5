@@ -87,7 +87,7 @@ public class App {
                             } else {
                                 Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
                                         0L,
-                                            (Function2<Long, Integer, Long>) (Long::sum));
+                                        (Function2<Long, Integer, Long>) (Long::sum));
                                 Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                         <Pair<String, Long>>create().
                                         mapConcat(
@@ -105,18 +105,19 @@ public class App {
                                                     long begin = System.currentTimeMillis();
                                                     CompletableFuture<Response> resp =
                                                             Dsl.
-                                                            asyncHttpClient().
-                                                            executeRequest(request).
-                                                            toCompletableFuture();
+                                                                    asyncHttpClient().
+                                                                    executeRequest(request).
+                                                                    toCompletableFuture();
                                                     return resp.thenCompose(
                                                             req ->
-                                                            CompletableFuture.
-                                                            completedFuture(
-                                                                    System.currentTimeMillis() - begin)
+                                                                    CompletableFuture.
+                                                                            completedFuture(
+                                                                                    System.currentTimeMillis() - begin)
 
                                                     )
                                                 }
                                         );
+                            }
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
