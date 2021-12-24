@@ -74,7 +74,7 @@ public class App {
                         PARALLELISM,
                         m -> Patterns.ask(
                                         actorCache,
-                                        new MessageGet(m.first())),
+                                        new MessageGet(m.first()),
                                         TIMEOUT
                     ).thenCompose(
                         result -> {
