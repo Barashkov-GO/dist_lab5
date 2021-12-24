@@ -30,8 +30,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static org.asynchttpclient.Dsl.asyncHttpClient;
-
 public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
@@ -112,8 +110,6 @@ public class App {
                                                                         asyncHttpClient().
                                                                         executeRequest(request1).
                                                                         toCompletableFuture();
-                                                                asyncHttpClient().prepareGet(url).execute();
-                                                                System.out.println((int) (System.currentTimeMillis() - begin));
                                                                 return CompletableFuture.completedFuture(
                                                                         (int) (System.currentTimeMillis() - begin)
                                                                 );
