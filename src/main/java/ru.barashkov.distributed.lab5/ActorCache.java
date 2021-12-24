@@ -28,4 +28,8 @@ public class ActorCache extends AbstractActor {
             build();
     }
 
+    @Override
+    public Receive createReceive() {
+        return null;
+    }
 }
