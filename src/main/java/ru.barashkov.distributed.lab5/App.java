@@ -22,8 +22,8 @@ import javafx.util.Duration;
 import javafx.util.Pair;
 import org.asynchttpclient.Dsl;
 import org.asynchttpclient.Request;
+import org.asynchttpclient.Response;
 
-import javax.xml.ws.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -114,7 +114,7 @@ public class App {
                                                             completedFuture(
                                                                     System.currentTimeMillis() - begin)
 
-                                                    )
+                                                    );
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
