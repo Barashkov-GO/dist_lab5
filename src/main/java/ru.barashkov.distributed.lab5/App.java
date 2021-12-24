@@ -88,7 +88,7 @@ public class App {
                                             return CompletableFuture.completedFuture(
                                                     new Pair<String, Optional<Long>>(
                                                             request.first(),
-                                                            (Integer) result
+                                                            ((<Optional<Long>>) result).get()
                                                     )
                                             );
                                         } else {
