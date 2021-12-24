@@ -108,7 +108,7 @@ public class App {
                                                             asyncHttpClient().
                                                             executeRequest(request).
                                                             toCompletableFuture();
-                                                    return resp.thenCompose(req -> return CompletableFuture.completedFuture())
+                                                    return resp.thenCompose(req -> return CompletableFuture.completedFuture(System.currentTimeMillis() - begin))
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
