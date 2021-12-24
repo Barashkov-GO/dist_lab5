@@ -90,7 +90,7 @@ public class App {
                                         (Function2<Long, Integer, Long>) (Long::sum)
                                 );
                                 Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
-                                        <Pair<String, Long>>create().
+                                        <Pair<String, Integer>>create().
                                         mapConcat(
                                                 m -> {
                                                     ArrayList<String> out = new ArrayList<>();
