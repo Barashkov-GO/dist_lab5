@@ -17,6 +17,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
+import akka.stream.javadsl.Source;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
@@ -96,7 +97,7 @@ public class App {
                                                 }
                                         ).
                                         mapAsync(
-                                                m.second, 
+                                                m.second, url
                                         )
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
