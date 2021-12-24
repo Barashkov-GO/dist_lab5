@@ -69,6 +69,7 @@ public class App {
                                 Query q = request.getUri().query();
                                 String url = q.get(URL_PARAMETER).get();
                                 Integer count = Integer.parseInt(q.get(COUNT_PARAMETER).get());
+                                System.out.println();
                                 return new Pair<>(url, count);
                             }
                     ).
