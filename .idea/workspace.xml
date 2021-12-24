@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bac2bbcd-68db-4fb1-aae0-27a2b53bfa4f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru.barashkov.distributed.lab5/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru.barashkov.distributed.lab5/App.java" afterDir="false" />
-    </list>
+    <list default="true" id="bac2bbcd-68db-4fb1-aae0-27a2b53bfa4f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
