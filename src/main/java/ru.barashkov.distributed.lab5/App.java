@@ -101,7 +101,7 @@ public class App {
                                         mapAsync(
                                                 m.second(), url -> {
                                                     long begin = System.currentTimeMillis();
-                                                    CompletableFuture<Response> resp = Dsl.asyncHttpClient()
+                                                    CompletableFuture<Response> resp = Dsl.asyncHttpClient().executeRequest()
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
