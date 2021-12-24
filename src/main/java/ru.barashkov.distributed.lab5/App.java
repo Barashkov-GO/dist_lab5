@@ -18,6 +18,7 @@ import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 public class App {
@@ -68,7 +69,7 @@ public class App {
                                 ).thenCompose(
                                     result -> {
                                         if result.is {
-                                            
+                                            return CompletableFuture<>
                                     }
                                 )
                     )
