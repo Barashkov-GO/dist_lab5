@@ -110,10 +110,11 @@ public class App {
                                                                     executeRequest(request).
                                                                     toCompletableFuture();
                                                     return resp.thenCompose(
-                                                            req ->
-                                                                    CompletableFuture.
-                                                                            completedFuture((int) (System.currentTimeMillis() - begin))
-
+                                                            req -> {
+                                                                Integer time = (int) (System.currentTimeMillis() - begin);
+                                                                return CompletableFuture.
+                                                                        completedFuture(time);
+                                                            }
                                                     );
                                                 }
                                         ).toMat(fold, Keep.right());
@@ -134,8 +135,5 @@ public class App {
                                 );
                                 return HttpResponse.create().withEntity(result.first() + " - " + result.second().toString());
                             }
-                    )
-
-        }
-
+                    );
 }
