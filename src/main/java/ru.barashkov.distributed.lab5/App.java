@@ -107,10 +107,6 @@ public class App {
                                                     request.second(), url -> {
                                                         long begin = System.currentTimeMillis();
                                                         asyncHttpClient().prepareGet(url).execute();
-                                                        CompletableFuture<Response> resp =
-                                                                asyncHttpClient().
-                                                                        executeRequest(requestGet).
-                                                                        toCompletableFuture();
                                                         return resp.thenCompose(
                                                                 response -> {
                                                                     Integer time = (int) (System.currentTimeMillis() - begin);
