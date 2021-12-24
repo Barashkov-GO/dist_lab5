@@ -106,7 +106,7 @@ public class App {
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
                                                                 Request request1 = Dsl.get(url).build();
-                                                                CompletableFuture<Response> responseCompletableFuture = Dsl.
+                                                                CompletableFuture<Response> responseCompletableFuture = Dsl.asyncHttpClient()
                                                                 asyncHttpClient().prepareGet(url).execute();
                                                                 System.out.println((int) (System.currentTimeMillis() - begin));
                                                                 return CompletableFuture.completedFuture(
