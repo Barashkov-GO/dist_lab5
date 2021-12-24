@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ActorCache extends AbstractActor {
-    private Map<String, Long> cache = new HashMap<>();
+    private final Map<String, Long> cache = new HashMap<>();
 
     public Recieve createRecieve() {
         return RecieveBuilder.create().
