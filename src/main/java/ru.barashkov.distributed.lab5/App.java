@@ -41,7 +41,7 @@ public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
         private static final Integer PARALLELISM = 10;
-        private static final java.time.Duration TIMEOUT = java.time.Duration.to3000;
+        private static final java.time.Duration TIMEOUT = java.time.Duration.ofMillis(3000);
 
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
@@ -84,7 +84,7 @@ public class App {
                                     TIMEOUT
                             ).thenCompose(
                                     result -> {
-                                        if (((Integer) result).isPresent()) {
+                                        if (((Integer) result >= 1) {
                                             return CompletableFuture.completedFuture(
                                                     new Pair<String, Optional<Long>>(
                                                             request.first(),
