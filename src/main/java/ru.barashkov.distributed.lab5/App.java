@@ -25,9 +25,10 @@ import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 
-import javafx.util.Duration;
 
 import java.io.IOException;
+
+import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
