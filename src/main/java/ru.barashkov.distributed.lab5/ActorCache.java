@@ -5,6 +5,6 @@ import akka.actor.AbstractActor;
 public class ActorCache extends AbstractActor {
     private Map<String, Long> cache = new HashMap<>;
 
-    public Recieve CreateRecieve
+    public Recieve createRecieve()
 
 }
