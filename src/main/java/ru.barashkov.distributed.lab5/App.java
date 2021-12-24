@@ -67,7 +67,7 @@ public class App {
                             Query q = request.getUri().query();
                             String url = String.valueOf(q.get("url"));
                             Integer count = Integer.parseInt(String.valueOf(q.get("count")));
-                            return new Pair<String, Integer>(url, count);
+                            return new Pair<>(url, count);
                         }
                     ).
                     mapAsync(
