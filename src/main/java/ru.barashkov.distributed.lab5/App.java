@@ -127,6 +127,7 @@ public class App {
                                                     sum -> new Pair<>(request.first(), sum / request.second())
                                             );
                                 }
+                            }
                         )
                     ).map(
                             result -> {
