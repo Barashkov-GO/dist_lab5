@@ -141,7 +141,7 @@ public class App {
                                 System.out.println("Average:\t" + result.second());
                                 return HttpResponse.create().withEntity(
                                             result.first() +
-                                            " ------ " +
+                                            " - " +
                                             result.second().toString()
                                 );
                             }
