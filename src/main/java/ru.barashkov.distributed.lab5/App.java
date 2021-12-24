@@ -123,7 +123,9 @@ public class App {
                                             from(Collections.singletonList(request)).
                                             toMat(testSink, Keep.right()).
                                             run(materializer).
-                                            thenApply();
+                                            thenApply(
+                                                    sum -> 
+                                            );
                                 }
                             }
                         )
