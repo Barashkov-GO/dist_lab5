@@ -111,7 +111,7 @@ public class App {
                                                                         executeRequest(requestGet).
                                                                         toCompletableFuture();
                                                         return resp.thenCompose(
-                                                                req -> {
+                                                                response -> {
                                                                     Integer time = (int) (System.currentTimeMillis() - begin);
                                                                     return CompletableFuture.
                                                                             completedFuture(time);
