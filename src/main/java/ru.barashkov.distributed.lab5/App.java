@@ -124,7 +124,9 @@ public class App {
                             }
                         }
                     ).map(
-                            result -> 
+                            result -> {
+                                actorCache.tell()
+                            }
                     )
 
                             }
