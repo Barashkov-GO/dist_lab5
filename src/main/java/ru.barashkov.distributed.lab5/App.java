@@ -14,14 +14,15 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Keep;
+import akka.stream.javadsl.Source;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-
-import static java.util.concurrent.CompletableFuture.completedFuture;
 
 public class App {
         private static final String IP = "localhost";
@@ -76,7 +77,8 @@ public class App {
                                                     result)
                                             );
                                         } else {
-                                            
+                                            Source.from(Collections.singletonList(r))
+                                                    .toMat(testSink, Keep.right()).run(materializer);
                                         }
                                 )
                     )
