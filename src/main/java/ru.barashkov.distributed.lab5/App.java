@@ -104,7 +104,7 @@ public class App {
                                                     mapAsync(
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
-                                                                Request request1 = Dsl.get
+                                                                Request request1 = Dsl.get(url).
                                                                 asyncHttpClient().prepareGet(url).execute();
                                                                 System.out.println((int) (System.currentTimeMillis() - begin));
                                                                 return CompletableFuture.completedFuture(
