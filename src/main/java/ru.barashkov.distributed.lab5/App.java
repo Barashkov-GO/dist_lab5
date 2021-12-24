@@ -87,7 +87,7 @@ public class App {
                                         mapConcat(
                                                 m -> {
                                                     ArrayList<String> out = new ArrayList<>();
-                                                    for (int i = 0; i < m.)
+                                                    for (int i = 0; i < m.second)
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
