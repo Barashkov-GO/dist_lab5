@@ -21,6 +21,7 @@ import akka.stream.javadsl.Source;
 import javafx.util.Duration;
 import javafx.util.Pair;
 import org.asynchttpclient.Dsl;
+import org.asynchttpclient.Request;
 
 import javax.xml.ws.Response;
 import java.io.IOException;
@@ -100,8 +101,9 @@ public class App {
                                         ).
                                         mapAsync(
                                                 m.second(), url -> {
+                                                    Request request =  
                                                     long begin = System.currentTimeMillis();
-                                                    CompletableFuture<Response> resp = Dsl.asyncHttpClient().executeRequest()
+                                                    CompletableFuture<Response> resp = Dsl.asyncHttpClient().executeRequest(request).toCompletableFuture();
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
