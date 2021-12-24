@@ -114,9 +114,9 @@ public class App {
                                                             completedFuture(
                                                                     System.currentTimeMillis() - begin)
 
-                                                    );
+                                                    )
                                                 }
-                                        )
+                                        );
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
