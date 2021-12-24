@@ -19,6 +19,7 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
+import org.asynchttpclient.Request;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,6 +104,7 @@ public class App {
                                                     mapAsync(
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
+                                                                Request request1 = 
                                                                 asyncHttpClient().prepareGet(url).execute();
                                                                 System.out.println((int) (System.currentTimeMillis() - begin));
                                                                 return CompletableFuture.completedFuture(
