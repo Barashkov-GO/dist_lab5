@@ -41,7 +41,7 @@ public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
         private static final Integer PARALLELISM = 10;
-        private static final Duration TIMEOUT = Duration.millis(3000);
+        private static final java.time.Duration TIMEOUT = java.time.Duration.to3000;
 
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
