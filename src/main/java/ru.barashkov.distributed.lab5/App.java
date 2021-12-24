@@ -91,7 +91,7 @@ public class App {
                                             Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                                     <Pair<String, Integer>>create().
                                                     mapConcat(
-                                                            r -> new ArrayList<>(Collections.)
+                                                            r -> new ArrayList<>(Collections.nCopies())
 //                                                            {
 //                                                                ArrayList<String> out = new ArrayList<>();
 //                                                                for (int i = 0; i < r.second(); i++) {
