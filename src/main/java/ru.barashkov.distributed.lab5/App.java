@@ -40,7 +40,7 @@ public class App {
                 Http http,
                 ActorSystem system,
                 ActorMaterializer materializer) {
-            return Flow<>()
+            return Flow.of()
 
         }
 
