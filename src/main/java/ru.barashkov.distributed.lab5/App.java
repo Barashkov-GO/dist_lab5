@@ -91,7 +91,7 @@ public class App {
                                             Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
                                                     <Pair<String, Integer>>create().
                                                     mapConcat(
-                                                            r -> new ArrayList<>(Collections.nCopies(r.second(), r.first())))
+                                                            r -> new ArrayList<>(Collections.nCopies(r.second(), r.first()))).
 //                                                            {
 //                                                                ArrayList<String> out = new ArrayList<>();
 //                                                                for (int i = 0; i < r.second(); i++) {
@@ -99,7 +99,7 @@ public class App {
 //                                                                }
 //                                                                return out;
 //                                                            }
-                                                    ).
+//                                                    ).
                                                     mapAsync(
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
