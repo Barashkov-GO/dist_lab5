@@ -124,6 +124,7 @@ public class App {
                                         run(materializer);
                             }
                         }
+                    )
                     ).map(
                             result -> {
                                 actorCache.tell(
