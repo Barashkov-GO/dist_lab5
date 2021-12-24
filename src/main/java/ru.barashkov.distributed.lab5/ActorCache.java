@@ -15,8 +15,7 @@ public class ActorCache extends AbstractActor {
                 MessageGet.class,
                 m ->
             ).
-            build()
-
+            build();
     }
 
 }
