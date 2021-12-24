@@ -77,6 +77,7 @@ public class App {
                                                     result)
                                             );
                                         } else {
+                                            testSink = Flow<>.create()
                                             Source.from(Collections.singletonList(r))
                                                     .toMat(testSink, Keep.right()).run(materializer);
                                         }
