@@ -118,7 +118,7 @@ public class App {
                                                 }
                                         );
                             }
-                                Source.from(Collections.singletonList(r))
+                            return Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
                     )
