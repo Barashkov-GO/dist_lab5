@@ -1,7 +1,8 @@
 package ru.barashkov.distributed.lab5;
 
-import akka.actor.
+import akka.actor.AbstractActor;
 
 public class ActorCache extends AbstractActor {
     private Map<String, Long> cache = new HashMap<>;
+    
 }
