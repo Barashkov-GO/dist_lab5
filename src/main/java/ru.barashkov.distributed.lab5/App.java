@@ -63,6 +63,7 @@ public class App {
                 ActorSystem system,
                 ActorMaterializer materializer,
                 ActorRef actorCache) {
+            System.out.println("Otladka\n");
             return Flow.of(HttpRequest.class).
                     map(
                             request -> {
