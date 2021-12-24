@@ -1,4 +1,4 @@
-public class MessageSet {
+public class MessageGet {
     private String url;
     private Long responseTime;
 

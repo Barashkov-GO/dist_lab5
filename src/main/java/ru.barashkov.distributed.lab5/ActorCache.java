@@ -9,11 +9,18 @@ public class ActorCache extends AbstractActor {
         return RecieveBuilder.create().
             match(
                 MessageSet.class,
-                m -> cache.put(m.getUrl(), m.getResponseTime())
+                m -> cache.put(
+                        m.getUrl(),
+                        m.getResponseTime()
+                )
             ).
             match(
                 MessageGet.class,
-                m -> sender().tell()
+                m -> sender().
+                        tell(
+                                cache.get(m.getUrl()),
+                                self()
+                        )
             ).
             build();
     }
