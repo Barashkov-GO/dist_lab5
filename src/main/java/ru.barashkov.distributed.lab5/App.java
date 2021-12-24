@@ -30,7 +30,7 @@ public class App {
             ActorRef actorCache = system.actorOf(Props.create(ActorCache.class));
             final Http http = Http.get(system);
             final ActorMaterializer materializer = ActorMaterializer.create(system);
-            final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(http, system, materializer);
+            final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(http, system, materializer, actorCache);
             final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                     routeFlow,
                     ConnectHttp.toHost(IP, PORT),
@@ -46,7 +46,8 @@ public class App {
         public static Flow<HttpRequest, HttpResponse, NotUsed> func(
                 Http http,
                 ActorSystem system,
-                ActorMaterializer materializer) {
+                ActorMaterializer materializer,
+                ActorRef actorCache) {
             return Flow.of(HttpRequest.class).
                     map(
                         m -> {
@@ -60,7 +61,8 @@ public class App {
                             PARALLELISM,
                             m -> {
                                 Patterns.ask(
-                                        system.
+                                        actorCache,
+                                        
                                 )
 
                             }
