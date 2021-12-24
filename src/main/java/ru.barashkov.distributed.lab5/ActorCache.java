@@ -1,6 +1,7 @@
 package ru.barashkov.distributed.lab5;
 
 import akka.actor.AbstractActor;
+import akka.japi.pf.ReceiveBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +10,8 @@ public class ActorCache extends AbstractActor {
     private final Map<String, Long> cache = new HashMap<>();
 
     @Override
-    public Recieve createRecieve() {
-        return RecieveBuilder.create().
+    public Receive createRecieve() {
+        return ReceiveBuilder.create().
             match(
                 MessageSet.class,
                 m -> cache.put(
@@ -29,8 +30,4 @@ public class ActorCache extends AbstractActor {
             build();
     }
 
-    @Override
-    public Receive createReceive() {
-        return null;
-    }
 }
