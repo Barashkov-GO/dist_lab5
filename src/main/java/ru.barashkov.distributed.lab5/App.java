@@ -92,7 +92,8 @@ public class App {
                                                     }
                                                     return out;
                                                 }
-                                        )
+                                        ).
+                                        mapAsync()
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
