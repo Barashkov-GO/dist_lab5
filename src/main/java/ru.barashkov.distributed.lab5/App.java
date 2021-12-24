@@ -14,6 +14,7 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
         private static final Integer PARALLELISM = 10;
+        private static final Duration TIMEOUT = Duration.millis(3000);
 
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
@@ -63,7 +65,7 @@ public class App {
                                 Patterns.ask(
                                         actorCache,
                                         new MessageGet(m.first),
-                                        java
+                                        TIMEOUT
                                 )
 
                             }
