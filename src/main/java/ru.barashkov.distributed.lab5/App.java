@@ -86,9 +86,9 @@ public class App {
                                     result -> {
                                         if ((Integer) result >= 0) {
                                             return CompletableFuture.completedFuture(
-                                                    new Pair<String, Optional<Long>>(
+                                                    new Pair<>(
                                                             request.first(),
-                                                            ((Optional<Long>) result).get()
+                                                            (Integer) result
                                                     )
                                             );
                                         } else {
