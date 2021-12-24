@@ -79,9 +79,9 @@ public class App {
                         result -> {
                             if (result) {
                                 return CompletableFuture.completedFuture(
-                                        new Pair<String, Long> (
-                                            m.first(),
-                                            result
+                                        new Pair<String, Long>(
+                                                m.first(),
+                                                result
                                         )
                                 );
                             } else {
@@ -112,18 +112,18 @@ public class App {
                                                     return resp.thenCompose(
                                                             req ->
                                                                     CompletableFuture.
-                                                                    completedFuture((int) (System.currentTimeMillis() - begin))
+                                                                            completedFuture((int) (System.currentTimeMillis() - begin))
 
                                                     );
                                                 }
                                         ).toMat(fold, Keep.right());
-                            return Source.
-                                    from(Collections.singletonList(m)).
-                                    toMat(testSink, Keep.right()).
-                                    run(materializer);
+                                return Source.
+                                        from(Collections.singletonList(m)).
+                                        toMat(testSink, Keep.right()).
+                                        run(materializer);
                             }
-                    )
-                    )
+                        }
+                    ).build();
 
                             }
                     )
