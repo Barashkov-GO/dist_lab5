@@ -78,7 +78,9 @@ public class App {
                                                     result)
                                             );
                                         } else {
-                                            Sink<Integer, CompletableFuture<Long>> fold = Sink.fold(0L, )
+                                            Sink<Integer, CompletableFuture<Long>> fold = Sink.fold(
+                                                    0L,
+                                                    (Function2<Long, Integer, Long>) )
                                             testSink = Flow.<Pair<String, Long>>create().
                                             Source.from(Collections.singletonList(r))
                                                     .toMat(testSink, Keep.right()).run(materializer);
