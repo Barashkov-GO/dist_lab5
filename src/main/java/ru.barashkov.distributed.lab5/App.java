@@ -11,6 +11,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
+import akka.japi.Pair;
 import akka.japi.function.Function2;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
@@ -19,10 +20,6 @@ import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import javafx.util.Duration;
-import javafx.util.Pair;
-import org.asynchttpclient.Dsl;
-import org.asynchttpclient.Request;
-import org.asynchttpclient.Response;
 
 import java.io.IOException;
 import java.util.ArrayList;
