@@ -96,7 +96,7 @@ public class App {
                                                 }
                                         ).
                                         mapAsync(
-                                                m.
+                                                m.second, 
                                         )
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
