@@ -21,6 +21,7 @@ import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import org.asynchttpclient.Dsl;
 import org.asynchttpclient.Request;
+import org.asynchttpclient.Response;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -106,7 +107,11 @@ public class App {
                                                             request.second(), url -> {
                                                                 long begin = System.currentTimeMillis();
                                                                 Request request1 = Dsl.get(url).build();
-                                                                CompletableFuture<Response> responseCompletableFuture = Dsl.asyncHttpClient().executeRequest(request1)
+                                                                CompletableFuture<Response> responseCompletableFuture =
+                                                                        Dsl.
+                                                                        asyncHttpClient().
+                                                                        executeRequest(request1).
+                                                                        toCompletableFuture();
                                                                 asyncHttpClient().prepareGet(url).execute();
                                                                 System.out.println((int) (System.currentTimeMillis() - begin));
                                                                 return CompletableFuture.completedFuture(
