@@ -8,7 +8,7 @@ public class ActorCache extends AbstractActor {
     public Recieve createRecieve() {
         return RecieveBuilder.create().match(
                 MessageSet.class,
-                m -> 
+                m -> cache.put(m.get)
 
         );
 
