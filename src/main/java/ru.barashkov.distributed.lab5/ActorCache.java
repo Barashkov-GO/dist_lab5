@@ -13,7 +13,7 @@ public class ActorCache extends AbstractActor {
             ).
             match(
                 MessageGet.class,
-                m -> sender.tell()
+                m -> sender().tell()
             ).
             build();
     }
