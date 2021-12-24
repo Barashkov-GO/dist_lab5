@@ -88,8 +88,9 @@ public class App {
                                                 m -> {
                                                     ArrayList<String> out = new ArrayList<>();
                                                     for (int i = 0; i < m.second(); i++) {
-                                                        out.add
+                                                        out.add(m.first());
                                                     }
+                                                    return out;
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
