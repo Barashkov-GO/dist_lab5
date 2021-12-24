@@ -77,7 +77,8 @@ public class App {
                                 return CompletableFuture.completedFuture(
                                         new Pair<String, Long> (
                                             m.first(),
-                                            result)
+                                            result
+                                        )
                                 );
                             } else {
                                 Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
