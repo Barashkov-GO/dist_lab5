@@ -125,7 +125,8 @@ public class App {
                         }
                     ).map(
                             result -> {
-                                actorCache.tell()
+                                actorCache.tell(
+                                        new MessageSet.class)
                             }
                     )
 
