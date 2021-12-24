@@ -84,7 +84,7 @@ public class App {
                                     TIMEOUT
                             ).thenCompose(
                                     result -> {
-                                        if (((Integer) result >= 1) {
+                                        if ((Integer) result >= 0) {
                                             return CompletableFuture.completedFuture(
                                                     new Pair<String, Optional<Long>>(
                                                             request.first(),
