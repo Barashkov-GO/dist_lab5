@@ -2,9 +2,10 @@ package ru.barashkov.distributed.lab5;
 
 
 public class App {
+        private static final String IP = "localhost";
+        private final static String 
 
-        
-    public static void main(String[] args) throws IOException {
+        public static void main(String[] args) throws IOException {
             System.out.println("start!");
             ActorSystem system = ActorSystem.create("routes");
             final Http http = Http.get(system);
@@ -21,6 +22,6 @@ public class App {
             binding
                     .thenCompose(ServerBinding::unbind)
                     .thenAccept(unbound -> system.terminate());
-    }
+        }
 
 }
