@@ -1,3 +1,5 @@
 public class MessageSet {
-    private 
+    private String url;
+
+    
 }
