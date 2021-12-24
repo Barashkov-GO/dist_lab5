@@ -77,7 +77,7 @@ public class App {
                                                     result)
                                             );
                                         } else {
-                                            testSink = Flow<>.create()
+                                            testSink = Flow<Pair<String, Long>>.create()
                                             Source.from(Collections.singletonList(r))
                                                     .toMat(testSink, Keep.right()).run(materializer);
                                         }
