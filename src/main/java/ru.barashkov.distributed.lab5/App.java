@@ -32,8 +32,8 @@ import java.util.concurrent.CompletionStage;
 
 public class App {
         private static final String IP = "localhost";
-        private static final String URL_PARAMETER = "";
-        private static final String IP = "localhost";
+        private static final String URL_PARAMETER = "testUrl";
+        private static final String COUNT_PARAMETER = "";
 
         private static final Integer PORT = 8080;
         private static final Integer PARALLELISM = 10;
