@@ -45,7 +45,8 @@ public class App {
                     m -> {
                         Query q = m.getUri().query();
                         String url = String.valueOf(q.get("url"));
-                        Integer count = q.get("count");
+                        Integer count = Integer.parseInt(String.valueOf(q.get("count")));
+                        
                     }
             )
 
