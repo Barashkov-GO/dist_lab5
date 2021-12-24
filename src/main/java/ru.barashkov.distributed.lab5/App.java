@@ -42,7 +42,7 @@ public class App {
                 ActorMaterializer materializer) {
             return Flow.of(HttpRequest.class).map(
                     m -> {
-                        
+                        m.getUri()
                     }
             )
 
