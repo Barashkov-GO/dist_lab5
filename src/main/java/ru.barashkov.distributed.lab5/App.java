@@ -3,7 +3,7 @@ package ru.barashkov.distributed.lab5;
 
 public class App {
         private static final String IP = "localhost";
-        private final static String 
+        private static final Integer PORT = 8080;
 
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
@@ -13,7 +13,7 @@ public class App {
             final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
             final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                     routeFlow,
-                    ConnectHttp.toHost("localhost", 8080),
+                    ConnectHttp.toHost(IP, PORT),
                     materializer
             );
             System.out.println("Server online at http://localhost:8080/\nPress
