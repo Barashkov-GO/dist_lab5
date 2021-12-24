@@ -54,8 +54,8 @@ public class App {
         }
 
         public static Flow<HttpRequest, HttpResponse, NotUsed> func(
-//                Http http,
-//                ActorSystem system,
+                Http http,
+                ActorSystem system,
                 ActorMaterializer materializer,
                 ActorRef actorCache) {
             return Flow.of(HttpRequest.class).
