@@ -1,3 +1,3 @@
 public class ActorCache extends AbstractActor {
-    private Map<String, Long> cache = 
+    private Map<String, Long> cache = new HashMap<>;
 }
