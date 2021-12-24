@@ -113,6 +113,7 @@ public class App {
                                                                 return responseCompletableFuture.thenCompose(
                                                                         response -> {
                                                                             int duration = (int) (System.currentTimeMillis() - begin);
+                                                                            System.out.println((int) (System.currentTimeMillis() - begin));
                                                                             return CompletableFuture.completedFuture(duration);
                                                                         }
                                                                 );
