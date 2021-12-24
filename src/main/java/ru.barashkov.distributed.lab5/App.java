@@ -112,7 +112,7 @@ public class App {
                                                     return resp.thenCompose(
                                                             req ->
                                                                     CompletableFuture.
-                                                                            completedFuture((int)(System.currentTimeMillis() - begin))
+                                                                            completedFuture((int) (System.currentTimeMillis() - begin))
 
                                                     );
                                                 }
