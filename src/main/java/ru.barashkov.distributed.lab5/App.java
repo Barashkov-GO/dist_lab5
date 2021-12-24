@@ -107,8 +107,9 @@ public class App {
                                                     request.second(), url -> {
                                                         long begin = System.currentTimeMillis();
                                                         asyncHttpClient().prepareGet(url).execute();
-                                                        return CompletableFuture.
-                                                                completedFuture((int) (System.currentTimeMillis() - begin));
+                                                        return CompletableFuture.completedFuture(
+                                                                (int) (System.currentTimeMillis() - begin)
+                                                        );
                                                     }
                                             ).toMat(fold, Keep.right());
                                     return Source.
