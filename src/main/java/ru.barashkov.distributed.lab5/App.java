@@ -31,6 +31,8 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import static org.asynchttpclient.Dsl.asyncHttpClient;
+
 public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
@@ -103,11 +105,10 @@ public class App {
                                             ).
                                             mapAsync(
                                                     request.second(), url -> {
-                                                        Request requestGet = Dsl.get(url).build();
                                                         long begin = System.currentTimeMillis();
+                                                        asyncHttpClient().prepareGet(url).execute();
                                                         CompletableFuture<Response> resp =
-                                                                Dsl.
-                                                                        asyncHttpClient().
+                                                                asyncHttpClient().
                                                                         executeRequest(requestGet).
                                                                         toCompletableFuture();
                                                         return resp.thenCompose(
