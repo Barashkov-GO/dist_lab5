@@ -80,7 +80,7 @@ public class App {
                             result -> {
                                 if (((Optional<Long>) result).isPresent()) {
                                     return CompletableFuture.completedFuture(
-                                            new Pair<String, Long>(
+                                            new Pair<String, Optional<Long>>(
                                                     m.first(),
                                                     ((Optional<Long>) result).get()
                                             )
