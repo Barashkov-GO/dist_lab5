@@ -3,6 +3,7 @@ package ru.barashkov.distributed.lab5;
 
 import akka.NotUsed;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
@@ -25,7 +26,7 @@ public class App {
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
             ActorSystem system = ActorSystem.create("routes");
-            ActorRef actorCache = 
+            ActorRef actorCache = system.actorOf(Props.create())
             final Http http = Http.get(system);
             final ActorMaterializer materializer = ActorMaterializer.create(system);
             final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(http, system, materializer);
