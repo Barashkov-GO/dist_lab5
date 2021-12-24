@@ -115,7 +115,7 @@ public class App {
                                                                             completedFuture(
                                                                                     System.currentTimeMillis() - begin)
 
-                                                    )
+                                                    );
                                                 }
                                         );
                             }
