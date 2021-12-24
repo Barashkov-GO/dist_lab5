@@ -24,7 +24,7 @@ public class ActorCache extends AbstractActor {
                 MessageGet.class,
                 m -> sender().
                         tell(
-                                Optional.ofNullable(cache.get(m.getUrl())),
+                                cache.get(m.getUrl()),
                                 self()
                         )
             ).
