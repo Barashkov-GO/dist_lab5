@@ -19,6 +19,7 @@ import java.util.concurrent.CompletionStage;
 public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
+        private stativ final Integer PARALLELISM = 10;
 
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
@@ -51,8 +52,8 @@ public class App {
                             return new Pair<String, Integer>(url, count);
                         }
                     ).
-                    mapAsync()
-                    
+                    mapAsync(PARALLELISM, )
+
         }
 
 }
