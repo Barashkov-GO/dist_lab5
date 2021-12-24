@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import static java.util.concurrent.CompletableFuture.completedFuture;
+
 public class App {
         private static final String IP = "localhost";
         private static final Integer PORT = 8080;
@@ -69,7 +71,7 @@ public class App {
                                 ).thenCompose(
                                     result -> {
                                         if result.is {
-                                            return CompletableFuture<Long>.completedFuture(m.first, )
+                                            return CompletableFuture.completedFuture(new Pair<String, Long> (m.first(), result))
                                     }
                                 )
                     )
