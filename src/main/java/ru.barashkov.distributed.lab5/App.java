@@ -70,13 +70,13 @@ public class App {
                                         TIMEOUT
                                 ).thenCompose(
                                     result -> {
-                                        if result.is {
+                                        if (result) {
                                             return CompletableFuture.completedFuture(new Pair<String, Long> (
                                                     m.first(),
                                                     result)
                                             );
                                         } else {
-                                            
+
                                         }
                                 )
                     )
