@@ -127,6 +127,7 @@ public class App {
                                         ),
                                         ActorRef.noSender()
                                 );
+                                System.out.println();
                                 return HttpResponse.create().withEntity(
                                             result.first() +
                                             " - " +
