@@ -65,7 +65,7 @@ public class App {
                     map(
                         request -> {
                             Query q = request.getUri().query();
-                            String url = String.valueOf(q.get("url"));
+                            String url = q.get("url").get();
                             Integer count = Integer.parseInt(String.valueOf(q.get("count")));
                             return new Pair<>(url, count);
                         }
