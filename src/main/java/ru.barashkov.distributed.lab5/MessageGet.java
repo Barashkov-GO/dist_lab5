@@ -9,7 +9,7 @@ public class MessageGet {
         this.responseTime = time;
     }
 
-    public String getUrl() {
+    public static String getUrl() {
         return this.url;
     }
 
