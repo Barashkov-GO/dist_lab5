@@ -2,6 +2,7 @@ package ru.barashkov.distributed.lab5;
 
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
@@ -26,7 +27,7 @@ public class App {
         public static void main(String[] args) throws IOException {
             System.out.println("start!");
             ActorSystem system = ActorSystem.create("routes");
-            ActorRef actorCache = system.actorOf(Props.create())
+            ActorRef actorCache = system.actorOf(Props.create(ActorCache.class));
             final Http http = Http.get(system);
             final ActorMaterializer materializer = ActorMaterializer.create(system);
             final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = func(http, system, materializer);
@@ -59,7 +60,7 @@ public class App {
                             PARALLELISM,
                             m -> {
                                 Patterns.ask(
-                                        ActorCache
+                                        system.
                                 )
 
                             }
