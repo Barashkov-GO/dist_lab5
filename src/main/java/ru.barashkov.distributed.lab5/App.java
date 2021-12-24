@@ -81,7 +81,8 @@ public class App {
                                 Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
                                         0L,
                                             (Function2<Long, Integer, Long>) (Long::sum));
-                                Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.<Pair<String, Long>>create().
+                                Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
+                                        <Pair<String, Long>>create().
                                 Source.from(Collections.singletonList(r))
                                         .toMat(testSink, Keep.right()).run(materializer);
                             }
