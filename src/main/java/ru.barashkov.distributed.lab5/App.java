@@ -76,57 +76,56 @@ public class App {
                                         actorCache,
                                         new MessageGet(m.first()),
                                         TIMEOUT
-                    ).thenCompose(
-                        result -> {
-                            if (((Optional<Long>) result).isPresent()) {
-                                return CompletableFuture.completedFuture(
-                                        new Pair<String, Long>(
-                                                m.first(),
-                                                result
-                                        )
-                                );
-                            } else {
-                                Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
-                                        0L,
-                                        (Function2<Long, Integer, Long>) (Long::sum)
-                                );
-                                Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
-                                        <Pair<String, Integer>>create().
-                                        mapConcat(
-                                                m -> {
-                                                    ArrayList<String> out = new ArrayList<>();
-                                                    for (int i = 0; i < m.second(); i++) {
-                                                        out.add(m.first());
+                        ).thenCompose(
+                            result -> {
+                                if (((Optional<Long>) result).isPresent()) {
+                                    return CompletableFuture.completedFuture(
+                                            new Pair<String, Long>(
+                                                    m.first(),
+                                                    result
+                                            )
+                                    );
+                                } else {
+                                    Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
+                                            0L,
+                                            (Function2<Long, Integer, Long>) (Long::sum)
+                                    );
+                                    Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow.
+                                            <Pair<String, Integer>>create().
+                                            mapConcat(
+                                                    m -> {
+                                                        ArrayList<String> out = new ArrayList<>();
+                                                        for (int i = 0; i < m.second(); i++) {
+                                                            out.add(m.first());
+                                                        }
+                                                        return out;
                                                     }
-                                                    return out;
-                                                }
-                                        ).
-                                        mapAsync(
-                                                m.second(), url -> {
-                                                    Request request = Dsl.get(url).build();
-                                                    long begin = System.currentTimeMillis();
-                                                    CompletableFuture<Response> resp =
-                                                            Dsl.
-                                                                    asyncHttpClient().
-                                                                    executeRequest(request).
-                                                                    toCompletableFuture();
-                                                    return resp.thenCompose(
-                                                            req -> {
-                                                                Integer time = (int) (System.currentTimeMillis() - begin);
-                                                                return CompletableFuture.
-                                                                        completedFuture(time);
-                                                            }
-                                                    );
-                                                }
-                                        ).toMat(fold, Keep.right());
-                                return Source.
-                                        from(Collections.singletonList(m)).
-                                        toMat(testSink, Keep.right()).
-                                        run(materializer);
+                                            ).
+                                            mapAsync(
+                                                    m.second(), url -> {
+                                                        Request request = Dsl.get(url).build();
+                                                        long begin = System.currentTimeMillis();
+                                                        CompletableFuture<Response> resp =
+                                                                Dsl.
+                                                                        asyncHttpClient().
+                                                                        executeRequest(request).
+                                                                        toCompletableFuture();
+                                                        return resp.thenCompose(
+                                                                req -> {
+                                                                    Integer time = (int) (System.currentTimeMillis() - begin);
+                                                                    return CompletableFuture.
+                                                                            completedFuture(time);
+                                                                }
+                                                        );
+                                                    }
+                                            ).toMat(fold, Keep.right());
+                                    return Source.
+                                            from(Collections.singletonList(m)).
+                                            toMat(testSink, Keep.right()).
+                                            run(materializer);
+                                }
                             }
-                        }
-                    )
-
+                        )
                     ).map(
                             result -> {
                                 actorCache.tell(
