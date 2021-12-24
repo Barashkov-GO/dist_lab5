@@ -111,6 +111,7 @@ public class App {
                                                                         executeRequest(request1).
                                                                         toCompletableFuture();
                                                                 return CompletableFuture.completedFuture(
+                                                                        
                                                                         (int) (System.currentTimeMillis() - begin)
                                                                 );
                                                             }
