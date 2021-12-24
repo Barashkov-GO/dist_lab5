@@ -42,15 +42,17 @@ public class App {
                 Http http,
                 ActorSystem system,
                 ActorMaterializer materializer) {
-            return Flow.of(HttpRequest.class).map(
-                    m -> {
-                        Query q = m.getUri().query();
-                        String url = String.valueOf(q.get("url"));
-                        Integer count = Integer.parseInt(String.valueOf(q.get("count")));
-                        return new Pair<String, Integer>(url, count);
-                    }
-            )
-
+            return Flow.of(HttpRequest.class).
+                    map(
+                        m -> {
+                            Query q = m.getUri().query();
+                            String url = String.valueOf(q.get("url"));
+                            Integer count = Integer.parseInt(String.valueOf(q.get("count")));
+                            return new Pair<String, Integer>(url, count);
+                        }
+                    ).
+                    mapAsync()
+                    
         }
 
 }
