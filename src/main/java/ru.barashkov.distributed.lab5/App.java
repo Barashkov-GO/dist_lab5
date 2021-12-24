@@ -111,8 +111,9 @@ public class App {
                                                                         executeRequest(request1).
                                                                         toCompletableFuture();
                                                                 return CompletableFuture.completedFuture(
-                                                                        response ->
-                                                                        (int) (System.currentTimeMillis() - begin)
+                                                                        response -> {
+                                                                            
+                                                                        }
                                                                 );
                                                             }
                                                     ).toMat(fold, Keep.right());
