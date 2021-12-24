@@ -21,6 +21,7 @@ import akka.stream.javadsl.Source;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
+import javax.xml.ws.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -99,7 +100,7 @@ public class App {
                                         mapAsync(
                                                 m.second(), url -> {
                                                     long begin = System.currentTimeMillis();
-                                                    CompletableFuture<>
+                                                    CompletableFuture<Response> = 
                                                 }
                                         )
                                 Source.from(Collections.singletonList(r))
