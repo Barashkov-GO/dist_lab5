@@ -66,7 +66,9 @@ public class App {
                                         new MessageGet(m.first),
                                         TIMEOUT
                                 ).thenCompose(
-                                            
+                                    result -> {
+                                        if result.
+                                    }
                                 )
                     )
 
