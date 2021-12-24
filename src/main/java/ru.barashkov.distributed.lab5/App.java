@@ -74,9 +74,10 @@ public class App {
                     ).thenCompose(
                         result -> {
                             if (result) {
-                                return CompletableFuture.completedFuture(new Pair<String, Long> (
-                                        m.first(),
-                                        result)
+                                return CompletableFuture.completedFuture(
+                                        new Pair<String, Long> (
+                                            m.first(),
+                                            result)
                                 );
                             } else {
                                 Sink<Integer, CompletionStage<Long>> fold = Sink.fold(
